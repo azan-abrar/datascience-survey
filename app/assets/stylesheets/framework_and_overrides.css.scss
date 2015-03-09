@@ -40,6 +40,9 @@ main {
   width: 100%;
   margin-top: 51px; // accommodate the navbar
   }
+.admin {
+  margin-top: 90px;
+}
 section {
   @extend .row;
   margin-top: 20px;
@@ -82,3 +85,77 @@ body {
   @extend .btn-primary;
   @extend .btn-xs;
 }
+.panel-heading {
+  h2 {
+    margin: 0;
+  }
+}
+
+.survey-form {
+  h3 {
+    margin-top: 0;
+  }
+}
+
+/* SWITCH */
+.switch {
+  cursor: pointer;
+  position: relative;
+}
+.switch input {
+  position: absolute;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.switch input:checked + span:after {
+  left: 21px;
+}
+.switch input:checked + span {
+  background-color: #5cb85c;
+  color: #fff;
+}
+.switch input:disabled + span {
+  background-color: #CCC;
+}
+.switch span {
+  position: relative;
+  background-color: #E5E5E5;
+  border: 1px solid #E5E5E5;
+  display: inline-block;
+  padding: 5px;
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+  border-color: rgba(0, 0, 0, 0.1);
+  left: 0px;
+}
+.switch span:after {
+  content: "";
+  position: absolute;
+  background-color: #fff;
+  top: 1px;
+  bottom: 1px;
+  left: 1px;
+  -moz-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+  -webkit-transition: all 200ms ease;
+  -moz-transition: all 200ms ease;
+  -ms-transition: all 200ms ease;
+  -o-transition: all 200ms ease;
+  transition: all 200ms ease;
+}
+.switch.switch-small {
+  margin: 6px 0px 4px;
+}
+.switch.switch-small input:checked + span:after {
+  left: 11px;
+}
+.switch.switch-small span {
+}
+.switch.switch-small span:after {
+  width: 16px;
+}
+/* END SWITCH */

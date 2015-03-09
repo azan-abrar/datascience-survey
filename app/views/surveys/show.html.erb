@@ -1,0 +1,54 @@
+<div class="row">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+<div class="panel panel-default">
+  <div class="panel-heading"><h2>Survey</h2></div>
+  <div class="panel-body">
+<p>
+  <strong>Your definition of data science:</strong>
+  <p><%= @survey.definition %></p>
+</p>
+
+<p><strong>Areas you most associate with data science:</strong></p>
+<p>
+  <strong>Machine learning:</strong>
+  <%= @survey.machine_learning ? 'Yes' : 'No' %>
+</p>
+
+<p>
+  <strong>Big data:</strong>
+  <%= @survey.big_data ? 'Yes' : 'No' %>
+</p>
+
+<p>
+  <strong>Data engineering:</strong>
+  <%= @survey.data_engineering ? 'Yes' : 'No' %>
+</p>
+
+<p>
+  <strong>Papers that are data science in your opinion:</strong>
+  <p><%= @survey.papers %></p>
+</p>
+
+<p>
+  <strong>Your area of expertise:</strong>
+  <p><%= @survey.area_of_expertise %></p>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <p><%= (@survey.name.present? && @survey.name)||'N/A' %></p>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <p><%= (@survey.email.present? && @survey.email)||'N/A' %></p>
+</p>
+
+<%= link_to 'Edit', edit_survey_path(@survey), class: 'btn btn-primary' %>
+<%= link_to 'Back', surveys_path, class: 'btn btn-info' %>
+
+</div>
+</div>
+</div>
+</div>

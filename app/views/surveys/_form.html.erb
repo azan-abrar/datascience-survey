@@ -1,0 +1,41 @@
+<div class="row survey-form">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+  <div class="panel panel-default">
+  <div class="panel-heading"><h2>Survey</h2></div>
+  <div class="panel-body">
+    <h3>Wikipedia Criticism</h3>
+    <p>Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit. Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
+    <%= simple_form_for(@survey) do |f| %>
+      <%= f.error_notification %>
+
+      <div class="form-inputs">
+        <%= f.input :definition, label: 'Your definition of data science' %>
+        <p><strong>Areas you most associate with data science</strong></p>
+        <label class="switch">
+            <%= f.check_box :machine_learning %>
+            <span>Machine Learning</span>
+        </label>
+        <label class="switch">
+            <%= f.check_box :big_data %>
+            <span>Big Data</span>
+        </label>
+        <label class="switch">
+            <%= f.check_box :data_engineering %>
+            <span>Data Engineering</span>
+        </label>
+        <p></p>
+        <%= f.input :papers, label: 'Papers that are data science in your opinion' %>
+        <%= f.input :area_of_expertise, label: 'Your area of expertise' %>
+        <%= f.input :name, label: "Name (Optional)" %>
+        <%= f.input :email, label: "Email (Optional)" %>
+      </div>
+
+      <div class="form-actions">
+        <%= f.button :submit %>
+      </div>
+    <% end %>
+  </div>
+</div>
+</div>
+</div>
