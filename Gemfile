@@ -17,6 +17,7 @@ gem 'mysql2'
 gem 'simple_form'
 gem "wice_grid", '3.4.2'
 gem 'jquery-ui-rails'
+gem "font-awesome-rails"
 group :development do
   gem 'byebug'
   gem 'better_errors'
