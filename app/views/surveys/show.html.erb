@@ -10,21 +10,7 @@
 </p>
 
 <p><strong>What amongst these you most associate with data science:</strong></p>
-<p>
-  <strong>Machine learning:</strong>
-  <%= @survey.machine_learning ? 'Yes' : 'No' %>
-</p>
-
-<p>
-  <strong>Big data:</strong>
-  <%= @survey.big_data ? 'Yes' : 'No' %>
-</p>
-
-<p>
-  <strong>Data engineering:</strong>
-  <%= @survey.data_engineering ? 'Yes' : 'No' %>
-</p>
-
+<%= associated_list(@survey.associated_areas_list) %>
 <p>
   <strong>Papers that are data science in your opinion:</strong>
   <p><%= @survey.papers %></p>

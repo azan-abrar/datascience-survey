@@ -2,17 +2,6 @@
   <div class="panel-heading"><h2>Surveys</h2></div>
   <div class="panel-body">
 <%= grid(@surveys) do |g|
-  g.column name: 'Machine Learning', attribute: 'machine_learning' do |survey|
-    survey.machine_learning ? 'Yes' : 'No'
-  end
-
-  g.column name: 'Big Data', attribute: 'big_data' do |survey|
-    survey.big_data ? 'Yes' : 'No'
-  end
-
-  g.column name: 'Data Engineering', attribute: 'data_engineering' do |survey|
-    survey.data_engineering ? 'Yes' : 'No'
-  end
 
   g.column name: 'Name', attribute: 'name' do |survey|
     (survey.name.present? && survey.name)||'N/A'
@@ -20,6 +9,12 @@
 
   g.column name: 'Email', attribute: 'email' do |survey|
     (survey.email.present? && survey.email)||'N/A'
+  end
+
+  g.column name: 'Definition', attribute: 'definition'
+
+  g.column name: 'Associated Areas', attribute: 'associated_areas' do |survey|
+    associated_list(survey.associated_areas_list)
   end
 
   g.column name: 'Actions' do |survey|

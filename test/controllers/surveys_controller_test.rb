@@ -18,7 +18,7 @@ class SurveysControllerTest < ActionController::TestCase
 
   test "should create survey" do
     assert_difference('Survey.count') do
-      post :create, survey: { area_of_expertise: @survey.area_of_expertise, big_data: @survey.big_data, data_engineering: @survey.data_engineering, definition: @survey.definition, email: @survey.email, machine_learning: @survey.machine_learning, name: @survey.name, papers: @survey.papers }
+      post :create, survey: { area_of_expertise: @survey.area_of_expertise, definition: @survey.definition, email: @survey.email, name: @survey.name, papers: @survey.papers }
     end
 
     assert_redirected_to survey_path(assigns(:survey))
@@ -35,7 +35,7 @@ class SurveysControllerTest < ActionController::TestCase
   end
 
   test "should update survey" do
-    patch :update, id: @survey, survey: { area_of_expertise: @survey.area_of_expertise, big_data: @survey.big_data, data_engineering: @survey.data_engineering, definition: @survey.definition, email: @survey.email, machine_learning: @survey.machine_learning, name: @survey.name, papers: @survey.papers }
+    patch :update, id: @survey, survey: { area_of_expertise: @survey.area_of_expertise, definition: @survey.definition, email: @survey.email, name: @survey.name, papers: @survey.papers }
     assert_redirected_to survey_path(assigns(:survey))
   end
 

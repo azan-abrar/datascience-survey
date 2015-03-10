@@ -50,6 +50,6 @@ class SurveysController < ApplicationController
     end
 
     def survey_params
-      params.require(:survey).permit(:definition, :machine_learning, :big_data, :data_engineering, :papers, :area_of_expertise, :name, :email)
+      params.require(:survey).permit(:definition, {associated_areas: []}, :papers, :area_of_expertise, :name, :email)
     end
 end

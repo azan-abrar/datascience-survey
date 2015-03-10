@@ -14,18 +14,13 @@
       <div class="form-inputs">
         <%= f.input :definition, label: 'Your definition of data science' %>
         <p><strong>What amongst these you most associate with data science?</strong></p>
-        <label class="switch">
-            <%= f.check_box :machine_learning %>
-            <span><i class="fa fa-times-circle"></i> Machine Learning</span>
-        </label>
-        <label class="switch">
-            <%= f.check_box :big_data %>
-            <span><i class="fa fa-times-circle"></i> Big Data</span>
-        </label>
-        <label class="switch">
-            <%= f.check_box :data_engineering %>
-            <span><i class="fa fa-times-circle"></i> Data Engineering</span>
-        </label>
+        <% associated_areas = f.object.clean_associated_areas %>
+        <% Survey::ASSOCIATED_AREAS.collect do |id, name| %>
+          <label class="switch">
+              <%= f.check_box :associated_areas, {multiple: true, checked: associated_areas.include?(id)}, id, nil %>
+              <span><i class="fa fa-times-circle"></i> <%= name %></span>
+          </label>
+        <% end %>
         <p></p>
         <%= f.input :papers, label: 'Papers that are data science in your opinion' %>
         <%= f.input :area_of_expertise, label: 'Your area of expertise' %>
@@ -34,7 +29,7 @@
       </div>
 
       <div class="form-actions">
-        <%= f.button :submit %>
+        <%= f.button :submit, value: 'Submit' %>
       </div>
     <% end %>
   </div>

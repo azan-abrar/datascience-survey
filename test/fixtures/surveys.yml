@@ -2,9 +2,6 @@
 
 one:
   definition: MyText
-  machine_learning: false
-  big_data: false
-  data_engineering: false
   papers: MyText
   area_of_expertise: MyText
   name: MyString
@@ -12,9 +9,6 @@ one:
 
 two:
   definition: MyText
-  machine_learning: false
-  big_data: false
-  data_engineering: false
   papers: MyText
   area_of_expertise: MyText
   name: MyString

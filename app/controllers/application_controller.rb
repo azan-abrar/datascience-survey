@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def admin_only
-  	debugger
     access_denied unless current_user && current_user.admin?
   end
 
