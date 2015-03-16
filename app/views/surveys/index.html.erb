@@ -3,24 +3,29 @@
   <div class="panel-body">
 <%= grid(@surveys) do |g|
 
-  g.column name: 'Name', attribute: 'name' do |survey|
-    (survey.name.present? && survey.name)||'N/A'
+  g.column name: 'Name (Email)', attribute: 'name' do |survey|
+    survey.full_name
   end
 
-  g.column name: 'Email', attribute: 'email' do |survey|
-    (survey.email.present? && survey.email)||'N/A'
+  g.column name: 'Degree Level', attribute: 'degree_level', custom_filter: Survey::DEGREE_LEVELS.collect{|id, name| [name, id]} do |survey|
+    survey.degree_level_name
   end
 
-  g.column name: 'Definition', attribute: 'definition'
+  g.column name: 'Academic or business', attribute: 'profession', custom_filter: Survey::PROFESSIONS.collect{|id, name| [name, id]} do |survey|
+    survey.profession_name
+  end
 
-  g.column name: 'Associated Areas', attribute: 'associated_areas' do |survey|
-    associated_list(survey.associated_areas_list)
+  g.column name: 'Discipline', attribute: 'discipline', custom_filter: Survey::DISCIPLINES.collect{|id, name| [name, id]} do |survey|
+    survey.discipline_name
+  end
+
+  g.column name: 'Experience Level', attribute: 'experience_level', custom_filter: Survey::EXPERIENCE_LEVELS.collect{|id, name| [name, id]} do |survey|
+    survey.experience_level_name
   end
 
   g.column name: 'Actions' do |survey|
-    raw("#{link_to 'View', survey} | 
-    #{link_to 'Edit', edit_survey_path(survey)} |
-    #{link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' }}")
+    raw("#{link_to 'View', survey, class: 'btn btn-primary btn-xs'}
+    #{link_to 'Destroy', survey, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-info btn-xs'}")
   end
 end %>
 </div>

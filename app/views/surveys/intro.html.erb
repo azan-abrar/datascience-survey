@@ -1,0 +1,28 @@
+<div class="row survey-form">
+	<div class="col-md-3"></div>
+	<div class="col-md-6">
+		<%= render partial: 'steps', locals: {step: 0} %>
+		<div class="panel panel-default">
+			<div class="panel-heading"><h2>Introduction</h2></div>
+			<div class="panel-body">
+				<h3>What is this about?</h3>
+				<p>Through this survey we are asking how do you define Data Science? In general, there seems to be a consensus that Data Science is where software is used to generate and derive Data to knowledge/insights/ about a complex system that could aid in decision making.</p>
+
+				<h3>Why now?</h3>
+				<p>Data science is touted as the next big thing!.</p>
+				<p>- Many articles tout its significance, and one can read about them here, here and here. It is a field that is emerging by one notion merging multiple otherwise independent fields.</p>
+				<p>- It has driven many academic institutions to start programs (Berkeley Data science program), institutes (Columbia,NYU, )</p>
+				<p>- United states for the first time has created and appointed a Chief data scientist responsible</p>
+
+				<p>yet there is criticism as to what defines/constitutes Data Science? For example, on Wikipedia there is criticism about Data Science and we quote:</p>
+
+				<p>“Although use of the term "data science" has exploded in business environments, many academics and journalists see no distinction between data science and statistics. Writing in Forbes, Gil Press argues that data science is a buzzword without a clear definition and has simply replaced “business analytics” in contexts such as graduate degree programs. In the question-and-answer section of his keynote address at the Joint Statistical Meetings of American Statistical Association, noted applied statistician Nate Silver said, “I think data-scientist is a sexed up term for a statistician....Statistics is a branch of science. Data scientist is slightly redundant in some way and people shouldn’t berate the term statistician.“</p>
+
+				<p>But within the criticisms and its exponential growth, there are some questions that could deliver answers to some very pragmatic needs which are: What skills are necessary in a data scientist? What would a Data Science curriculum look like? Should we, in an adhoc fashion, piece together multiple well defined technologies/fields like Machine learning, Big Data, and Statistics, Visualization to define a data science curriculum, or is there a different way to look at it?</p>
+				<div class="text-center pull-right next-btn">
+					<%= link_to 'Next >', new_survey_path, class: 'btn btn-primary btn-lg' %>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

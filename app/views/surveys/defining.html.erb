@@ -1,0 +1,31 @@
+<div class="row survey-form">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <%= render partial: 'steps', locals: {step: 2} %>
+    <div class="panel panel-default">
+      <div class="panel-heading"><h2>Defining</h2></div>
+      <div class="panel-body">
+        <%= simple_form_for(@survey, url: survey_path(id: @survey.access_token)) do |f| %>
+        <%= f.error_notification %>
+        <%= f.hidden_field :step, value: Survey::DEFINING %>
+        <div class="form-inputs">
+          <%= f.input :definition, label: '* Your definition of data science' %>
+          <p><strong>What amongst these you most associate with data science?</strong></p>
+          <% associated_areas = f.object.clean_associated_areas %>
+          <% Survey::ASSOCIATED_AREAS.collect do |id, name| %>
+          <label class="switch">
+            <%= f.check_box :associated_areas, {multiple: true, checked: associated_areas.include?(id)}, id, nil %>
+            <span><i class="fa fa-times-circle"></i> <%= name %></span>
+          </label>
+          <% end %>
+          <p></p>
+          <%= f.input :papers, label: '* Papers that are data science in your opinion' %>
+        </div>
+        <div class="form-actions pull-right next-btn">
+          <%= f.button :submit, value: 'Next >', class: 'btn btn-primary btn-lg' %>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

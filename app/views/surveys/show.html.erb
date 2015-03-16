@@ -1,40 +1,98 @@
 <div class="row">
   <div class="col-md-3"></div>
   <div class="col-md-6">
-<div class="panel panel-default">
-  <div class="panel-heading"><h2>Survey</h2></div>
-  <div class="panel-body">
-<p>
-  <strong>Your definition of data science:</strong>
-  <p><%= @survey.definition %></p>
-</p>
+    <div class="panel panel-default">
+      <div class="panel-heading"><h2>Survey</h2></div>
+      <div class="panel-body">
+        <h3>About You</h3>
 
-<p><strong>What amongst these you most associate with data science:</strong></p>
-<%= associated_list(@survey.associated_areas_list) %>
-<p>
-  <strong>Papers that are data science in your opinion:</strong>
-  <p><%= @survey.papers %></p>
-</p>
+        <p>
+          <strong>Highest degree level / profession:</strong>
+          <p><%= @survey.degree_level_name %></p>
+        </p>
 
-<p>
-  <strong>Your area of expertise:</strong>
-  <p><%= @survey.area_of_expertise %></p>
-</p>
+        <p>
+          <strong>Academic or business:</strong>
+          <p><%= @survey.profession_name %></p>
+        </p>
 
-<p>
-  <strong>Name:</strong>
-  <p><%= (@survey.name.present? && @survey.name)||'N/A' %></p>
-</p>
+        <p>
+          <strong>Area of Experties / Research Interests:</strong>
+          <p><%= @survey.area_of_expertise %></p>
+        </p>
 
-<p>
-  <strong>Email:</strong>
-  <p><%= (@survey.email.present? && @survey.email)||'N/A' %></p>
-</p>
+        <p>
+          <strong>Discipline:</strong>
+          <p><%= @survey.discipline_name %></p>
+        </p>
 
-<%= link_to 'Edit', edit_survey_path(@survey), class: 'btn btn-primary' %>
-<%= link_to 'Back', surveys_path, class: 'btn btn-info' %>
+        <p>
+          <strong>Experience Level:</strong>
+          <p><%= @survey.experience_level_name %></p>
+        </p>
 
-</div>
-</div>
-</div>
+        <p>
+          <strong>Name:</strong>
+          <p><%= (@survey.name.present? && @survey.name)||'N/A' %></p>
+        </p>
+
+        <p>
+          <strong>Email:</strong>
+          <p><%= (@survey.email.present? && @survey.email)||'N/A' %></p>
+        </p>
+        <% if @survey.step >= Survey::DEFINING %>
+          <hr class="soften" />
+          <h3>Defining</h3>
+
+          <p>
+            <strong>Definition of data science:</strong>
+            <p><%= @survey.definition %></p>
+          </p>
+
+          <p><strong>What amongst these you most associate with data science:</strong></p>
+          <%= associated_list(@survey.associated_areas_list) %>
+
+          <p>
+            <strong>Papers that are data science in your opinion:</strong>
+            <p><%= @survey.papers %></p>
+          </p>
+        <% end %>
+
+        <% if @survey.step >= Survey::DIFFERENTIATION %>
+          <hr class="soften" />
+          <h3>Differentiation</h3>
+
+          <p>
+            <strong>Big Data technologies vs. Data Science:</strong>
+            <p><%= @survey.big_data_vs_data_science %></p>
+          </p>
+
+          <p>
+            <strong>Machine learning vs. Data Science:</strong>
+            <p><%= @survey.machine_learning_vs_data_science %></p>
+          </p>
+
+          <p>
+            <strong>Statistics vs. Data Science:</strong>
+            <p><%= @survey.stat_vs_data_science %></p>
+          </p>
+
+          <p>
+            <strong>Would you say data science transcends machine learning, big data technologies and statistics, information visualization technologies, curation technologies?</strong>
+            <p><%= @survey.all_curation_tech == false ? 'No' : (@survey.all_curation_tech ? 'Yes' : 'N/A') %></p>
+          </p>
+
+          <% if @survey.all_curation_tech %>
+            <p>
+              <strong>Explaination</strong>
+              <p><%= @survey.all_crution_explain %></p>
+            </p>
+          <% end %>
+        <% end %>
+        <div class="text-center">
+          <%= link_to 'Back', surveys_path, class: 'btn btn-info btn-lg' %>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
