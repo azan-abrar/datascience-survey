@@ -184,7 +184,7 @@ body {
 }
 ul.nav-wizard {
   background-color: #f9f9f9;
-  border: 1px solid #d4d4d4;
+  border: 1px solid #ddd;
   -webkit-border-radius: 6px;
   -moz-border-radius: 6px;
   border-radius: 6px;
@@ -225,11 +225,11 @@ ul.nav-wizard li {
   text-align: middle;
   padding: 0 20px 0 30px;
   margin: 0;
-  font-size: 16px;
+  font-size: 20px;
   line-height: 46px;
 }
 ul.nav-wizard li a {
-  color: #468847;
+  color: #555;
   padding: 0;
 }
 ul.nav-wizard li a:hover {
