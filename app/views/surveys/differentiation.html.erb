@@ -1,35 +1,28 @@
-<div class="row survey-form">
-  <div class="col-md-3"></div>
-  <div class="col-md-6">
-    <%= render partial: 'steps', locals: {step: 3} %>
-    <div class="panel panel-default">
-      <div class="panel-heading"><h2>Differentiation</h2></div>
-      <div class="panel-body">
-        <%= simple_form_for(@survey, url: survey_path(id: @survey.access_token)) do |f| %>
-        <%= f.error_notification %>
-        <%= f.hidden_field :step, value: Survey::DIFFERENTIATION %>
-        <div class="form-inputs">
-          <%= f.input :big_data_vs_data_science, label: '* Big Data technologies vs. Data Science' %>
-          <%= f.input :machine_learning_vs_data_science, label: '* Machine learning vs. Data Science' %>
-          <%= f.input :stat_vs_data_science, label: '* Statistics vs. Data Science' %>
-          <div class="form-group">
-            <%= f.label 'Would you say  Data Science transcends Machine learning, Big Data technologies and Statistics, Information visualization technologies, Curation technologies?' %><br />
-            <div class="btn-group radio-btn-group" data-toggle="buttons">
-              <%= f.label :name, class: "btn btn-default#{' active' if f.object.all_curation_tech}" do %>
-                <%= f.radio_button :all_curation_tech, true, onchange: "$('#all_crution_explain').fadeIn();" %> Yes
-              <% end %>
-              <%= f.label :name, class: "btn btn-default#{' active' if f.object.all_curation_tech == false}" do %>
-                <%= f.radio_button :all_curation_tech, false, onchange: "$('#all_crution_explain').fadeOut();" %> No
-              <% end %>
-            </div>
-          </div>
-          <%= f.input :all_crution_explain, label: 'Please Explain', wrapper_html: {style: f.object.all_curation_tech ? nil : 'display:none;', id: 'all_crution_explain'} %>
-        </div>
-        <div class="form-actions pull-right next-btn">
-          <%= f.button :submit, value: 'Finish', class: 'btn btn-primary btn-lg' %>
-        </div>
+<div class="public-container container">
+  <%= render partial: 'steps', locals: {step: 3} %>
+  <h1 class="text-center">Differentiation</h1>
+  <%= simple_form_for(@survey, url: survey_path(id: @survey.access_token)) do |f| %>
+  <%= f.error_notification %>
+  <%= f.hidden_field :step, value: Survey::DIFFERENTIATION %>
+  <div class="form-inputs">
+    <%= f.input :big_data_vs_data_science, label: '* Big Data technologies vs. Data Science' %>
+    <%= f.input :machine_learning_vs_data_science, label: '* Machine learning vs. Data Science' %>
+    <%= f.input :stat_vs_data_science, label: '* Statistics vs. Data Science' %>
+    <div class="form-group">
+      <%= f.label 'Would you say  Data Science transcends Machine learning, Big Data technologies and Statistics, Information visualization technologies, Curation technologies?' %><br />
+      <div class="btn-group radio-btn-group" data-toggle="buttons">
+        <%= f.label :name, class: "btn btn-default#{' active' if f.object.all_curation_tech}" do %>
+        <%= f.radio_button :all_curation_tech, true, onchange: "$('#all_crution_explain').fadeIn();" %> Yes
+        <% end %>
+        <%= f.label :name, class: "btn btn-default#{' active' if f.object.all_curation_tech == false}" do %>
+        <%= f.radio_button :all_curation_tech, false, onchange: "$('#all_crution_explain').fadeOut();" %> No
         <% end %>
       </div>
     </div>
+    <%= f.input :all_crution_explain, label: 'Please Explain', wrapper_html: {style: f.object.all_curation_tech ? nil : 'display:none;', id: 'all_crution_explain'} %>
   </div>
+  <div class="form-actions pull-right next-btn">
+    <%= f.button :submit, value: 'Finish', class: 'btn btn-primary btn-lg' %>
+  </div>
+  <% end %>
 </div>

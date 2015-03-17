@@ -1,6 +1,28 @@
-<ul class="nav nav-wizard">
-	<li<%= raw(" class='active'") if step == 0 %>>Introduction</li>
-	<li<%= raw(" class='active'") if step == 1 %>>About You</li>
-	<li<%= raw(" class='active'") if step == 2 %>>Defining</li>
-	<li<%= raw(" class='active'") if step == 3 %>>Differentiation</li>
-</ul>
+<div class="steps row">
+	<div class="col-md-3<%= ' active' if step == 0 %>">
+		<div class="step red">
+			<h3>Introduction</h3>
+		</div>
+	</div>
+	<div class="col-md-3<%= ' active' if step == 1 %>">
+		<div class="step blue">
+			<h3>About You</h3>
+		</div>
+	</div>
+	<div class="col-md-3<%= ' active' if step == 2 %>">
+		<div class="step brown">
+			<h3>Defining</h3>
+		</div>
+	</div>
+	<div class="col-md-3<%= ' active' if step == 3 %>">
+		<div class="step purple">
+			<h3>Differentiation</h3>
+		</div>
+	</div>
+</div>
+<div class="bottom-steps row">
+	<div class="col-md-3 red"></div>
+	<div class="col-md-3 blue"></div>
+	<div class="col-md-3 brown"></div>
+	<div class="col-md-3 purple"></div>
+</div>
