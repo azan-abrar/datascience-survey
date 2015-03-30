@@ -7,7 +7,7 @@ class Survey < ActiveRecord::Base
 	ABOUT_YOU = 1
 	DEFINING = 2
 	DIFFERENTIATION = 3
-	STEPS = {ABOUT_YOU => 'About You', DEFINING => 'Defining', DIFFERENTIATION => 'Differentiation'}
+	STEPS = {ABOUT_YOU => 'About You', DEFINING => 'Definition', DIFFERENTIATION => 'Differentiation'}
 	validates :step, inclusion: { in: STEPS.keys }
 	serialize :associated_areas, Array
 	ASSOCIATED_AREAS = {
