@@ -5,7 +5,7 @@
   <%= f.error_notification %>
   <%= f.hidden_field :step, value: Survey::DEFINING %>
   <div class="form-inputs">
-    <%= f.input :definition, label: '* Your definition of data science' %>
+    <%= f.input :definition, label: 'Your definition of data science' %>
     <p><strong>What amongst these you most associate with data science?</strong></p>
     <% associated_areas = f.object.clean_associated_areas %>
     <% Survey::ASSOCIATED_AREAS.collect do |id, name| %>
@@ -15,7 +15,7 @@
     </label>
     <% end %>
     <p></p>
-    <%= f.input :papers, label: '* Papers that are data science in your opinion' %>
+    <%= f.input :papers, label: 'Papers that are data science in your opinion' %>
   </div>
   <div class="form-actions pull-right next-btn">
     <%= f.button :submit, value: 'Next >', class: 'btn btn-primary btn-lg' %>

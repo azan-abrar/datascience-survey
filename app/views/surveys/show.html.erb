@@ -14,7 +14,7 @@
 
   <p>
     <strong>Area of Experties / Research Interests:</strong>
-    <p><%= @survey.area_of_expertise %></p>
+    <p><%= (@survey.area_of_expertise.present? && @survey.area_of_expertise)||'N/A' %></p>
   </p>
 
   <p>
@@ -42,7 +42,7 @@
 
   <p>
     <strong>Definition of data science:</strong>
-    <p><%= @survey.definition %></p>
+    <p><%= (@survey.definition.present? && @survey.definition)||'N/A' %></p>
   </p>
 
   <p><strong>What amongst these you most associate with data science:</strong></p>
@@ -50,7 +50,7 @@
 
   <p>
     <strong>Papers that are data science in your opinion:</strong>
-    <p><%= @survey.papers %></p>
+    <p><%= (@survey.papers.present? && @survey.papers)||'N/A' %></p>
   </p>
   <% end %>
 
@@ -60,17 +60,17 @@
 
   <p>
     <strong>Big Data technologies vs. Data Science:</strong>
-    <p><%= @survey.big_data_vs_data_science %></p>
+    <p><%= (@survey.big_data_vs_data_science.present? && @survey.big_data_vs_data_science)||'N/A' %></p>
   </p>
 
   <p>
     <strong>Machine learning vs. Data Science:</strong>
-    <p><%= @survey.machine_learning_vs_data_science %></p>
+    <p><%= (@survey.machine_learning_vs_data_science.present? && @survey.machine_learning_vs_data_science)||'N/A' %></p>
   </p>
 
   <p>
     <strong>Statistics vs. Data Science:</strong>
-    <p><%= @survey.stat_vs_data_science %></p>
+    <p><%= (@survey.stat_vs_data_science.present? && @survey.stat_vs_data_science)||'N/A' %></p>
   </p>
 
   <p>

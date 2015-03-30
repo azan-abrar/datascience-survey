@@ -1,7 +1,8 @@
 class Survey < ActiveRecord::Base
-	validates :area_of_expertise, :step, presence: true
-	validates :definition, :papers, presence: true, if: 'step>1'
-	validates :big_data_vs_data_science, :machine_learning_vs_data_science, :stat_vs_data_science, presence: true, if: 'step>2'
+	validates :step, presence: true
+	#validates :area_of_expertise, presence: true
+	#validates :definition, :papers, presence: true, if: 'step>1'
+	#validates :big_data_vs_data_science, :machine_learning_vs_data_science, :stat_vs_data_science, presence: true, if: 'step>2'
 	validates :email, format: { with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i }, if: "email&&email!=''"
 	validates :access_token, uniqueness: {case_sensitive: false}, presence: true
 	ABOUT_YOU = 1

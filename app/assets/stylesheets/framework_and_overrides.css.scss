@@ -188,6 +188,10 @@ body {
   }
 }
 
+h3 {
+  font-size: 20px;
+}
+
 .steps {
   text-align: center;
   .col-md-3{
@@ -196,7 +200,7 @@ body {
   }
   .step { //Completed
     border-top: 5px solid #ffffff;
-    padding: 30px 0;
+    padding: 10px 0;
     h3{
       margin: 0;
     }
@@ -299,7 +303,7 @@ body {
 
 .bottom-steps {
   .col-md-3 {
-    height: 25px;
+    height: 15px;
     border-top: 2px solid #ECECEC;
     border-right: 1px solid #fff;
   }
