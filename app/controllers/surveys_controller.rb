@@ -1,7 +1,7 @@
 class SurveysController < ApplicationController
   before_filter :authenticate_user!, only: [:destroy, :index, :show]
   before_filter :admin_only, only: [:destroy, :index, :show]
-  before_action :set_survey, only: [:show, :update, :destroy, :defining,
+  before_action :set_survey, only: [:show, :edit, :update, :destroy, :defining,
                                     :differentiation, :thanks]
 
   def index
@@ -11,21 +11,18 @@ class SurveysController < ApplicationController
   def show
   end
 
-  def new
-    @survey = Survey.new
+  def intro
+    @survey = (session[:access_token_datascience].blank?) ? Survey.new : Survey.find_by_access_token(session[:access_token_datascience])
+    @survey.save
+    session[:access_token_datascience] = @survey.access_token if session[:access_token_datascience].blank?
   end
 
-  def create
-    @survey = Survey.new(survey_params)
-    if @survey.save
-      redirect_to defining_survey_path(id: @survey.access_token)
-    else
-      render action: :new
-    end
+  def edit
   end
 
   def update
     if @survey.update(survey_params)
+      session.delete(:access_token_datascience)
       redirect_to_page(@survey)
     else
       actions = {Survey::ABOUT_YOU => :new, Survey::DEFINING => :defining, Survey::DIFFERENTIATION => :differentiation}
@@ -38,23 +35,19 @@ class SurveysController < ApplicationController
     redirect_to surveys_path
   end
 
-  def intro
-  end
-
   def defining
-    redirect_to_page(@survey) unless @survey.step == Survey::ABOUT_YOU
   end
 
   def differentiation
-    redirect_to_page(@survey) unless @survey.step == Survey::DEFINING
   end
 
   def thanks
   end
 
   private
+
     def set_survey
-      @survey = Survey.find_by_access_token(params[:id]) || ((current_user && current_user.admin?) && Survey.find_by_id(params[:id]))
+      @survey = Survey.find_by_access_token(session[:access_token_datascience]) || Survey.find_by_access_token(params[:id]) || ((current_user && current_user.admin?) && Survey.find_by_id(params[:id]))
       redirect_to root_path, alert: 'Survey not found' if @survey.blank?
     end
 
@@ -62,7 +55,7 @@ class SurveysController < ApplicationController
       params.require(:survey).permit(:definition, {associated_areas: []}, :papers,
         :area_of_expertise, :name, :email, :degree_level, :big_data_vs_data_science,
         :machine_learning_vs_data_science, :stat_vs_data_science, :all_curation_tech,
-        :all_crution_explain, :step, :profession, :discipline, :experience_level)
+        :all_crution_explain, :step, :profession, :discipline, :experience_level, :ok_storing_details, :tag_list)
     end
 
     def redirect_to_page(survey)
@@ -71,4 +64,5 @@ class SurveysController < ApplicationController
         Survey::DIFFERENTIATION => thanks_survey_path(id: survey.access_token)}
       redirect_to redirect_page[survey.step]
     end
+
 end

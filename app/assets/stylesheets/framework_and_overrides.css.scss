@@ -211,23 +211,27 @@ h3 {
     border-color:#ECECEC;
 
     &.red{
-      h3{
+      h3 > a {
         color: #a13b43;
+        text-decoration: none;
       }
     }
     &.blue{
-      h3{
+      h3 > a {
         color: #13a3ba;
+        text-decoration: none;
       }
     }
     &.brown{
-      h3{
+      h3 > a {
         color: #c77900;
+        text-decoration: none;
       }
     }
     &.purple{
-      h3{
+      h3 > a {
         color: #775786;
+        text-decoration: none;
       }
     }
   }

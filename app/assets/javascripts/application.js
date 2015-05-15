@@ -17,3 +17,4 @@
 //= require wice_grid
 //= require_tree .
 //= custom
+//= require tag-it

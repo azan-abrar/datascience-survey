@@ -46,7 +46,7 @@
   </p>
 
   <p><strong>What amongst these you most associate with data science:</strong></p>
-  <%= associated_list(@survey.associated_areas_list) %>
+  <%= associated_list(@survey.associated_areas_list + @survey.tags.map(&:name) ) %>
 
   <p>
     <strong>Papers that are data science in your opinion:</strong>

@@ -1,22 +1,22 @@
 <div class="steps row">
 	<div class="col-md-3<%= ' active' if step == 0 %>">
 		<div class="step red">
-			<h3>Introduction</h3>
+			<h3><%= link_to("Introduction", intro_surveys_path) %></h3>
 		</div>
 	</div>
 	<div class="col-md-3<%= ' active' if step == 1 %>">
 		<div class="step blue">
-			<h3>About You</h3>
+			<h3><%= link_to("About You", edit_survey_path(id: @survey.access_token)) %></h3>
 		</div>
 	</div>
 	<div class="col-md-3<%= ' active' if step == 2 %>">
 		<div class="step brown">
-			<h3>Definition</h3>
+			<h3><%= link_to("Definition", defining_survey_path(id: @survey.access_token) ) %></h3>
 		</div>
 	</div>
 	<div class="col-md-3<%= ' active' if step == 3 %>">
 		<div class="step purple">
-			<h3>Differentiation</h3>
+			<h3><%= link_to("Differentiation", differentiation_survey_path(id: @survey.access_token) ) %></h3>
 		</div>
 	</div>
 </div>

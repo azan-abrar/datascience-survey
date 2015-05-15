@@ -7,6 +7,10 @@
     survey.full_name
   end
 
+  g.column name: 'Access Token', attribute: 'access_token' do |survey|
+    survey.access_token
+  end
+
   g.column name: 'Degree Level', attribute: 'degree_level', custom_filter: Survey::DEGREE_LEVELS.collect{|id, name| [name, id]} do |survey|
     survey.degree_level_name
   end

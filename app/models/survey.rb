@@ -1,4 +1,7 @@
 class Survey < ActiveRecord::Base
+
+	acts_as_taggable
+
 	validates :step, presence: true
 	#validates :area_of_expertise, presence: true
 	#validates :definition, :papers, presence: true, if: 'step>1'
@@ -24,14 +27,13 @@ class Survey < ActiveRecord::Base
 		10 => 'Probability Models',
 		11 => 'Signal Processing',
 		12 => 'Science',
-		13 => 'Field',
-		14 => 'Statistics',
-		15 => 'Uncertainty Study',
-		16 => 'Modeling',
-		17 => 'Automation',
-		18 => 'Curation',
-		19 => 'Medical data mining',
-		20 => 'Educational data mining'
+		13 => 'Statistics',
+		14 => 'Uncertainty Study',
+		15 => 'Modeling',
+		16 => 'Automation',
+		17 => 'Curation',
+		18 => 'Medical Data Mining',
+		19 => 'Educational Data Mining'
 	}
 
 	DEGREE_LEVELS = {1 => 'Ph.D', 2 => 'M.S.', 3 => 'B.S.', 4 => 'Other'}

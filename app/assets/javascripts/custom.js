@@ -1,3 +1,13 @@
+$(document).ready(function() {
+    $("#tags").tagit({
+    	allowSpaces: true, 
+    	fieldName: "survey[tag_list]", 
+    	singleField: true, 
+    	tagLimit: 10
+    });
+});
+
+
 // $(document).ready(function(){
 
 // 	$('#survey_next').on("click",function(){

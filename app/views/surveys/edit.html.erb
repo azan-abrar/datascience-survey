@@ -48,6 +48,19 @@
 		</div>
 		<%= f.input :name, label: "Name (Optional)" %>
 		<%= f.input :email, label: "Email (Optional)" %>
+
+		<div class="form-group">
+      <%= f.label 'It is NOT necessary for you to give your Name and Email above, but in case you did, please confirm that you are OK with having this information stored?' %><br />
+      <div class="btn-group radio-btn-group" data-toggle="buttons">
+        <%= f.label :name, class: "btn btn-default#{' active' if f.object.ok_storing_details}" do %>
+        <%= f.radio_button :ok_storing_details, true, onchange: "$('#all_crution_explain').fadeIn();" %> Yes
+        <% end %>
+        <%= f.label :name, class: "btn btn-default#{' active' if f.object.ok_storing_details == false}" do %>
+        <%= f.radio_button :ok_storing_details, false, onchange: "$('#all_crution_explain').fadeOut();" %> No
+        <% end %>
+      </div>
+    </div>
+
 	</div>
 	<div class="form-actions pull-right next-btn">
 		<%= f.button :submit, value: 'Next >', class: 'btn btn-primary btn-lg', id: "survey_next" %>
@@ -56,36 +69,3 @@
 	<div id="dialog-confirm"></div>
 </div>
 
-<script type="text/javascript">
-	function checkForm(f)
-	{
-		if ($('#survey_name').val() != '' || $('#survey_email').val() != '')
-		{
-			 $("#dialog-confirm").dialog('open');
-			return false;
-		}
-		else
-		{
-			f.submit();
-			return false;
-		}
-		$("#dialog-confirm").dialog({
-	        resizable: false,
-	        modal: true,
-	        title: "Confirmation!",
-	        height: 250,
-	        width: 400,
-	        buttons: {
-	            "Yes": function () {
-	                $(this).dialog('close');
-	                //callback(true);
-	                submit = true
-	            },
-	                "No": function () {
-	                $(this).dialog('close');
-	                //callback(false);
-	            }
-	        }
-	    });
-	}
-</script>

@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-	resources :surveys, except: [:edit] do
+	resources :surveys, except: [:new, :create] do
 		collection do
 			get :intro
 		end
