@@ -1,13 +1,14 @@
 <div class="public-container container">
   <%= render partial: 'steps', locals: {step: 3} %>
-  <h1 class="text-center">Differentiation</h1>
+  <h1 class="text-center">Differentiating Data Science</h1>
+  <p><strong>In your own words, please help us differentiate between the following:</strong></p>
   <%= simple_form_for(@survey, url: survey_path(id: @survey.access_token)) do |f| %>
   <%= f.error_notification %>
   <%= f.hidden_field :step, value: Survey::DIFFERENTIATION %>
   <div class="form-inputs">
-    <%= f.input :big_data_vs_data_science, label: 'Big Data technologies vs. Data Science' %>
-    <%= f.input :machine_learning_vs_data_science, label: 'Machine learning vs. Data Science' %>
-    <%= f.input :stat_vs_data_science, label: 'Statistics vs. Data Science' %>
+    <%= f.input :big_data_vs_data_science, label: 'Big Data technologies vs. Data Science (Big data technologies: Hadoop, spark etc.) ' %>
+    <%= f.input :machine_learning_vs_data_science, label: 'Machine learning vs. Data Science (Machine learning: supervised learning, clustering, classification, deep learning, graphical models)' %>
+    <%= f.input :stat_vs_data_science, label: 'Statistics vs. Data Science (Statistics: bootstrap methods, cross validation, time series analysis etc.)' %>
     <div class="form-group">
       <%= f.label 'Would you say  Data Science transcends Machine learning, Big Data technologies and Statistics, Information visualization technologies, Curation technologies?' %><br />
       <div class="btn-group radio-btn-group" data-toggle="buttons">

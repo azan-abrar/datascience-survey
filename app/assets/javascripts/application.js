@@ -16,3 +16,4 @@
 //= require jquery-ui
 //= require wice_grid
 //= require_tree .
+//= custom

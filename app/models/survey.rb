@@ -14,7 +14,7 @@ class Survey < ActiveRecord::Base
 	ASSOCIATED_AREAS = {
 		1 => 'Predictive Analytics',
 		2 => 'Visualization',
-		3 => 'Deriving Knowledge From Facts',
+		3 => 'Deriving knowledge from data',
 		4 => 'Artificial Intelligence',
 		5 => 'Machine Learning',
 		6 => 'Data Engineering',
@@ -24,19 +24,21 @@ class Survey < ActiveRecord::Base
 		10 => 'Probability Models',
 		11 => 'Signal Processing',
 		12 => 'Science',
-		13 => 'Tool',
-		14 => 'Field',
-		15 => 'Statistics',
-		16 => 'Uncertainty Study',
-		17 => 'Modeling',
-		18 => 'Automation'
+		13 => 'Field',
+		14 => 'Statistics',
+		15 => 'Uncertainty Study',
+		16 => 'Modeling',
+		17 => 'Automation',
+		18 => 'Curation',
+		19 => 'Medical data mining',
+		20 => 'Educational data mining'
 	}
 
-	DEGREE_LEVELS = {1 => 'Ph.D', 2 => 'M.S.', 3 => 'B.S.'}
-	PROFESSIONS = {1 => 'Academic', 2 => 'Industry'}
+	DEGREE_LEVELS = {1 => 'Ph.D', 2 => 'M.S.', 3 => 'B.S.', 4 => 'Other'}
+	PROFESSIONS = {1 => 'Academic', 2 => 'Industry', 3 => 'Other'}
 	DISCIPLINES = {1 => 'Computer Science', 2 => 'Electrical', 3 => 'Mechanical',
-		4 => 'Physics', 5 => 'Arts', 6 => 'Chemistry'}
-	EXPERIENCE_LEVELS = {1 => '1-5 Years', 2 => '5-10 Years', 3 => '10-15 Years'}
+		4 => 'Physics', 5 => 'Arts', 6 => 'Chemistry', 7 => 'Other'}
+	EXPERIENCE_LEVELS = {1 => '1-5 Years', 2 => '5-10 Years', 3 => '10-15 Years', 4 => '>15 Years'}
 
 	before_validation :set_fields
 

@@ -1,6 +1,6 @@
 <div class="public-container container">
   <%= render partial: 'steps', locals: {step: 2} %>
-  <h1 class="text-center">Defining</h1>
+  <h1 class="text-center">Defining Data Science</h1>
   <%= simple_form_for(@survey, url: survey_path(id: @survey.access_token)) do |f| %>
   <%= f.error_notification %>
   <%= f.hidden_field :step, value: Survey::DEFINING %>
@@ -15,7 +15,23 @@
     </label>
     <% end %>
     <p></p>
-    <%= f.input :papers, label: 'Papers that are data science in your opinion' %>
+    <% if user_signed_in? %>
+      <div class="form-group">
+        <%= f.label 'Tags'%>
+        <div class="row">
+          <div class="col-md-6">
+            <ul id="tags">
+            <% unless current_user.tag_list.blank? %>
+              <% current_user.tag_list.each do |tag| %>
+              <li><%= tag %></li>
+              <% end %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+      </div>
+    <% end %>
+    <%= f.input :papers, label: 'Research papers, articles, blogs that are great resources for data science' %>
   </div>
   <div class="form-actions pull-right next-btn">
     <%= f.button :submit, value: 'Next >', class: 'btn btn-primary btn-lg' %>

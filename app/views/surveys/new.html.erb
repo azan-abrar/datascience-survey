@@ -1,7 +1,7 @@
 <div class="public-container container">
 	<%= render partial: 'steps', locals: {step: 1} %>
 	<h1 class="text-center">About You</h1>
-	<%= simple_form_for(@survey) do |f| %>
+	<%= simple_form_for(@survey, html: { onSubmit: "return checkForm(this);"}) do |f| %>
 	<%= f.error_notification %>
 	<%= f.hidden_field :step, value: Survey::ABOUT_YOU %>
 	<div class="form-inputs">
@@ -46,11 +46,46 @@
 				<% end %>
 			</div>
 		</div>
-		<%= f.input :name, label: "Name" %>
-		<%= f.input :email, label: "Email" %>
+		<%= f.input :name, label: "Name (Optional)" %>
+		<%= f.input :email, label: "Email (Optional)" %>
 	</div>
 	<div class="form-actions pull-right next-btn">
-		<%= f.button :submit, value: 'Next >', class: 'btn btn-primary btn-lg' %>
+		<%= f.button :submit, value: 'Next >', class: 'btn btn-primary btn-lg', id: "survey_next" %>
 	</div>
 	<% end %>
+	<div id="dialog-confirm"></div>
 </div>
+
+<script type="text/javascript">
+	function checkForm(f)
+	{
+		if ($('#survey_name').val() != '' || $('#survey_email').val() != '')
+		{
+			 $("#dialog-confirm").dialog('open');
+			return false;
+		}
+		else
+		{
+			f.submit();
+			return false;
+		}
+		$("#dialog-confirm").dialog({
+	        resizable: false,
+	        modal: true,
+	        title: "Confirmation!",
+	        height: 250,
+	        width: 400,
+	        buttons: {
+	            "Yes": function () {
+	                $(this).dialog('close');
+	                //callback(true);
+	                submit = true
+	            },
+	                "No": function () {
+	                $(this).dialog('close');
+	                //callback(false);
+	            }
+	        }
+	    });
+	}
+</script>
