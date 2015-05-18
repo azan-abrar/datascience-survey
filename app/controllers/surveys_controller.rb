@@ -9,7 +9,7 @@ class SurveysController < ApplicationController
   end
 
   def show
-    @survey = Survey.find_by_id(params[:id])) if current_user && current_user.admin?
+    @survey = Survey.find_by_id(params[:id]) if current_user && current_user.admin?
     redirect_to root_path, alert: 'Survey not found' if @survey.blank?
   end
 
