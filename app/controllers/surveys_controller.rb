@@ -1,7 +1,7 @@
 class SurveysController < ApplicationController
   before_filter :authenticate_user!, only: [:destroy, :index, :show]
   before_filter :admin_only, only: [:destroy, :index, :show]
-  before_action :set_survey, only: [:show, :edit, :update, :destroy, :defining,
+  before_action :set_survey, only: [:edit, :update, :destroy, :defining,
                                     :differentiation, :thanks]
 
   def index
@@ -9,6 +9,8 @@ class SurveysController < ApplicationController
   end
 
   def show
+    @survey = Survey.find_by_id(params[:id])) if current_user && current_user.admin?
+    redirect_to root_path, alert: 'Survey not found' if @survey.blank?
   end
 
   def intro
