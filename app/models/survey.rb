@@ -80,6 +80,14 @@ class Survey < ActiveRecord::Base
 		"#{self.name}#{" (#{self.email})" if self.email.present?}"
 	end
 
+	def self.remove_empty_rows
+		Survey.all.each do |survey|
+			if survey.definition.blank? && survey.associated_areas.blank? && survey.degree_level.blank? && survey.big_data_vs_data_science.blank? && survey.machine_learning_vs_data_science.blank? && survey.stat_vs_data_science.blank? && survey.all_curation_tech.blank? && survey.all_crution_explain.blank? && survey.profession.blank? && survey.discipline.blank? && survey.experience_level.blank? #&& survey.access_token.blank? && survey.step.blank?
+				survey.destroy
+			end
+		end
+	end
+
 	private
 	def set_fields
 		self.access_token||=Digest::MD5.hexdigest("#{self.name}-#{Time.now.to_i}")

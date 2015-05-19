@@ -19,6 +19,7 @@ gem "wice_grid", '3.4.2'
 gem 'jquery-ui-rails'
 gem "font-awesome-rails"
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'whenever', :require => false
 group :development do
   gem 'byebug'
   gem 'better_errors'
