@@ -7,7 +7,7 @@
 #
 set :output, "log/cron_log.log"
 
-every 4.hours do 
+every 1.day, :at => '4:30 am' do 
    runner "Survey.remove_empty_rows"
 end
 
